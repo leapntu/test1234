@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy2 Experiment Builder (v1.83.04), 2016_07_05_1351
+This experiment was created using PsychoPy2 Experiment Builder (v1.83.04), Tue 05 Jul 2016 04:41:11 PM SGT
 If you publish work using this script please cite the relevant PsychoPy publications
   Peirce, JW (2007) PsychoPy - Psychophysics software in Python. Journal of Neuroscience Methods, 162(1-2), 8-13.
   Peirce, JW (2009) Generating stimuli for neuroscience using PsychoPy. Frontiers in Neuroinformatics, 2:10. doi: 10.3389/neuro.11.010.2008
@@ -15,14 +15,6 @@ from numpy import sin, cos, tan, log, log10, pi, average, sqrt, std, deg2rad, ra
 from numpy.random import random, randint, normal, shuffle
 import os  # handy system and path functions
 import sys # to get file system encoding
-
-#enable parallel port access with:
-#sudo modprobe -r lp
-
-#port = parallel.ParallelPort('/dev/parport0')
-#core.wait(2)
-#port.setData(0)
-
 
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemencoding())
@@ -57,10 +49,17 @@ if not os.path.isdir(wavDirName):
     os.makedirs(wavDirName)  # to hold .wav files
 
 # Setup the Window
-win = visual.Window(size=[1280, 720], fullscr=False, screen=0, allowGUI=True, allowStencil=False,
+win = visual.Window(size=[1280, 720], fullscr=True, screen=0, allowGUI=True, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True,
     )
+    
+#enable parallel port access with:
+#sudo modprobe -r lp
+
+#port = parallel.ParallelPort('/dev/parport0')
+#core.wait(2)
+#port.setData(0)
 
 # Enable sound input/output:
 microphone.switchOn()
@@ -74,17 +73,17 @@ else:
 # Initialize components for Routine "Introduction"
 IntroductionClock = core.Clock()
 introMessage = visual.TextStim(win=win, ori=0, name='introMessage',
-    text=u"Welcome to the LEAP Lab!\nYou will have 5 test to measure your English Ablity.\nFor the test, it will take about 1 and half hour including the break time.\nThe break will be given during the each Test.\nIf you have any questions during the test, \nplease ask to the mannger in the break time or test intro time.\nThen, let's begin! Press the 'SPACEBAR'.",    font=u'Arial',
+    text="Welcome to the LEAP Lab!\nYou will have 5 test to measure your English Ablity.\nFor the test, it will take about 1 and half hour including the break time.\nThe break will be given during the each Test.\nIf you have any questions during the test, \nplease ask to the mannger in the break time or test intro time.\nThen, let's begin! Press the 'SPACEBAR'.",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test1intro"
 test1introClock = core.Clock()
 test1Intro = visual.TextStim(win=win, ori=0, name='test1Intro',
-    text=u"Test1\n\nIn this test, you will see 40 set of written pseudowords.\nThen you need to choose one word which seems more 'Wordlike'.\nWhen you think the Left word is more 'Word-like', then Press 'F'.\nWhen you think the Right word is more 'Word-like', then Press 'J'.\nIf you don't have confidnece about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR'.",    font=u'Arial',
+    text="Test1\n\nIn this test, you will see 40 set of written pseudowords.\nThen you need to choose one word which seems more 'Wordlike'.\nWhen you think the Left word is more 'Word-like', then Press 'F'.\nWhen you think the Right word is more 'Word-like', then Press 'J'.\nIf you don't have confidnece about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR'.",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test1"
@@ -100,25 +99,25 @@ text_2 = visual.TextStim(win=win, ori=0, name='text_2',
     color='white', colorSpace='rgb', opacity=1,
     depth=-1.0)
 text_16 = visual.TextStim(win=win, ori=0, name='text_16',
-    text=u"Which word is more 'Word-like'?",    font=u'Arial',
+    text="Which word is more 'Word-like'?",    font='Arial',
     pos=[0, 0.3], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-3.0)
 
 # Initialize components for Routine "break1"
 break1Clock = core.Clock()
 breakmes = visual.TextStim(win=win, ori=0, name='breakmes',
-    text=u"Now, you can take a break as long as you need before continuing.\nPlease, press 'SPACEBAR' when you are ready to continue.",    font=u'Arial',
+    text="Now, you can take a break as long as you need before continuing.\nPlease, press 'SPACEBAR' when you are ready to continue.",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test2intro"
 test2introClock = core.Clock()
 test2IntroMsg = visual.TextStim(win=win, ori=0, name='test2IntroMsg',
-    text=u"Test2\n\nIn this test, you will hear 40 set of spoken pseudowords.\nEach word will be given by Pressing 'SPACEBAR'.\nThen you need to choose one word which sounds more 'Word-like'.\nWhen you think the First word is more 'Word-like', then Press 'F'.\nWhen you think the Second word is more 'Word-like', then Press 'J'.\nIf you don't have confidnece about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR' for listening the first word.",    font=u'Arial',
+    text="Test2\n\nIn this test, you will hear 40 set of spoken pseudowords.\nEach word will be given by Pressing 'SPACEBAR'.\nThen you need to choose one word which sounds more 'Word-like'.\nWhen you think the First word is more 'Word-like', then Press 'F'.\nWhen you think the Second word is more 'Word-like', then Press 'J'.\nIf you don't have confidnece about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR' for listening the first word.",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test2word1"
@@ -126,9 +125,9 @@ test2word1Clock = core.Clock()
 nonwo1 = sound.Sound('A', secs=-1)
 nonwo1.setVolume(1)
 text_3 = visual.TextStim(win=win, ori=0, name='text_3',
-    text=u"If you are ready to hear next word,\nPress 'SPACEBAR'.",    font=u'Arial',
+    text="If you are ready to hear next word,\nPress 'SPACEBAR'.",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-2.0)
 
 # Initialize components for Routine "test2word2"
@@ -136,33 +135,33 @@ test2word2Clock = core.Clock()
 nonwo2 = sound.Sound('A', secs=-1)
 nonwo2.setVolume(1)
 text_4 = visual.TextStim(win=win, ori=0, name='text_4',
-    text=u"Which word is more 'Word-like'?\nIf you think First one is more 'Word-like', Press 'F'.\nIf you think second one is more 'Word-like', Press 'J'.",    font=u'Arial',
+    text="Which word is more 'Word-like'?\nIf you think First one is more 'Word-like', Press 'F'.\nIf you think second one is more 'Word-like', Press 'J'.",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-2.0)
 
 # Initialize components for Routine "test2break"
 test2breakClock = core.Clock()
 text_14 = visual.TextStim(win=win, ori=0, name='text_14',
-    text=u"If you are ready to listen next word,\nPress 'SPACEBAR'!",    font=u'Arial',
+    text="If you are ready to listen next word,\nPress 'SPACEBAR'!",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "break2"
 break2Clock = core.Clock()
 text_5 = visual.TextStim(win=win, ori=0, name='text_5',
-    text=u"Now, you can take a break as long as you need before continuing.\nPlease, press 'SPACEBAR' when you are ready to continue.\n",    font=u'Arial',
+    text="Now, you can take a break as long as you need before continuing.\nPlease, press 'SPACEBAR' when you are ready to continue.\n",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test3intro"
 test3introClock = core.Clock()
 test3IntroMsg = visual.TextStim(win=win, ori=0, name='test3IntroMsg',
-    text=u"Test3\n\nIn this test, you will hear 34 spoken words.\nThen you need to choose one written word which you heard before.\nIf you don't have confidnece about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR' for listening the first word.\n",    font=u'Arial',
+    text="Test3\n\nIn this test, you will hear 34 spoken words.\nThen you need to choose one written word which you heard before.\nIf you don't have confidnece about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR' for listening the first word.\n",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test3"
@@ -180,54 +179,54 @@ text_7 = visual.TextStim(win=win, ori=0, name='text_7',
     color='white', colorSpace='rgb', opacity=1,
     depth=-2.0)
 text_8 = visual.TextStim(win=win, ori=0, name='text_8',
-    text=u'Which word is Correct by your listening?',    font=u'Arial',
+    text='Which word is Correct by your listening?',    font='Arial',
     pos=[0, 0.3], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-4.0)
 
 # Initialize components for Routine "break3"
 break3Clock = core.Clock()
 text_9 = visual.TextStim(win=win, ori=0, name='text_9',
-    text=u"Now, you can take a break as long as you need before continuing.\nPlease, press 'SPACEBAR' when you are ready to continue.",    font=u'Arial',
+    text="Now, you can take a break as long as you need before continuing.\nPlease, press 'SPACEBAR' when you are ready to continue.",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test4intro"
 test4introClock = core.Clock()
 text_10 = visual.TextStim(win=win, ori=0, name='text_10',
-    text=u"Test4\n\nIn this test, you will see 36 written words.\nThen you need to speak the word as clear as you can.\nIf you are ready, Press 'SPACEBAR'.\n",    font=u'Arial',
+    text="Test4\n\nIn this test, you will see 36 written words.\nThen you need to speak the word as clear as you can.\nIf you are ready, Press 'SPACEBAR'.\n",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test4word"
 test4wordClock = core.Clock()
 text_11 = visual.TextStim(win=win, ori=0, name='text_11',
-    text='default text',    font=u'Arial',
+    text='default text',    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 text_12 = visual.TextStim(win=win, ori=0, name='text_12',
-    text=u"If you are ready to speak, Press 'SPACEBAR'.\nYou should speak the word in 3 seconds.",    font=u'Arial',
+    text="If you are ready to speak, Press 'SPACEBAR'.\nYou should speak the word in 3 seconds.",    font='Arial',
     pos=[0, 0.3], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0)
 
 # Initialize components for Routine "test4"
 test4Clock = core.Clock()
 text_15 = visual.TextStim(win=win, ori=0, name='text_15',
-    text=u'Speak loud and clear please!',    font=u'Arial',
+    text='Speak loud and clear please!',    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
-    depth=-1.0)
+    color='white', colorSpace='rgb', opacity=1,
+    depth=0.0)
 
 # Initialize components for Routine "endpage"
 endpageClock = core.Clock()
 text_13 = visual.TextStim(win=win, ori=0, name='text_13',
-    text=u"You have now come to the end of our first 4 experiment.\nNow, you will have final test.\nPlease wait for a while.\nPress, 'SPACEBAR' for tuning off the program.",    font=u'Arial',
+    text="You have now come to the end of our first 4 experiment.\nNow, you will have final test.\nPlease wait for a while.\nPress, 'SPACEBAR' for tuning off the program.",    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Create some handy timers
@@ -381,7 +380,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 trials = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions(u'test1.xlsx'),
+    trialList=data.importConditions('test1.xlsx'),
     seed=None, name='trials')
 thisExp.addLoop(trials)  # add the loop to the experiment
 thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
@@ -657,7 +656,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 trials_2 = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions(u'test2.xlsx'),
+    trialList=data.importConditions('test2.xlsx'),
     seed=None, name='trials_2')
 thisExp.addLoop(trials_2)  # add the loop to the experiment
 thisTrial_2 = trials_2.trialList[0]  # so we can initialise stimuli with some values
@@ -699,11 +698,18 @@ for thisTrial_2 in trials_2:
         # update/draw components on each frame
         # start/stop nonwo1
         if t >= 0.0 and nonwo1.status == NOT_STARTED:
-            #port.setData(1)
+#            if thisTrial_2.values()[0]==u'f':
+#                print('f')
+#                port.setData(1)
+#            else:
+#                print('j')
+#                port.setData(2)
             # keep track of start time/frame for later
             nonwo1.tStart = t  # underestimates by a little under one frame
             nonwo1.frameNStart = frameN  # exact frame index
             nonwo1.play()  # start the sound (it finishes automatically)
+#            core.wait(0.3)
+#            port.setData(0)
         
         # *key_resp_7* updates
         if t >= 0.0 and key_resp_7.status == NOT_STARTED:
@@ -781,10 +787,18 @@ for thisTrial_2 in trials_2:
         # update/draw components on each frame
         # start/stop nonwo2
         if t >= 0.0 and nonwo2.status == NOT_STARTED:
+#            if thisTrial_2.values()[0]==u'f':
+#                print('f')
+#                port.setData(2)
+#            else:
+#                print('j')
+#                port.setData(1)
             # keep track of start time/frame for later
             nonwo2.tStart = t  # underestimates by a little under one frame
             nonwo2.frameNStart = frameN  # exact frame index
             nonwo2.play()  # start the sound (it finishes automatically)
+#            core.wait(0.3)
+#            port.setData(0)
         
         # *key_resp_8* updates
         if t >= 0.0 and key_resp_8.status == NOT_STARTED:
@@ -1078,7 +1092,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 trials_3 = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions(u'test3.xlsx'),
+    trialList=data.importConditions('test3.xlsx'),
     seed=None, name='trials_3')
 thisExp.addLoop(trials_3)  # add the loop to the experiment
 thisTrial_3 = trials_3.trialList[0]  # so we can initialise stimuli with some values
@@ -1363,7 +1377,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 trials_4 = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions(u'test4.xlsx'),
+    trialList=data.importConditions('test4.xlsx'),
     seed=None, name='trials_4')
 thisExp.addLoop(trials_4)  # add the loop to the experiment
 thisTrial_4 = trials_4.trialList[0]  # so we can initialise stimuli with some values
@@ -1466,11 +1480,11 @@ for thisTrial_4 in trials_4:
     frameN = -1
     routineTimer.add(3.000000)
     # update component parameters for each repeat
-    mic = microphone.AdvAudioCapture(name='mic', saveDir=wavDirName, stereo=False)
+    mic_1 = microphone.AdvAudioCapture(name='mic_1', saveDir=wavDirName, stereo=False)
     # keep track of which components have finished
     test4Components = []
-    test4Components.append(mic)
     test4Components.append(text_15)
+    test4Components.append(mic_1)
     for thisComponent in test4Components:
         if hasattr(thisComponent, 'status'):
             thisComponent.status = NOT_STARTED
@@ -1483,17 +1497,6 @@ for thisTrial_4 in trials_4:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         
-        # *mic* updates
-        if t >= 0.0 and mic.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            mic.tStart = t  # underestimates by a little under one frame
-            mic.frameNStart = frameN  # exact frame index
-            mic.status = STARTED
-            mic.record(sec=3.0, block=False)  # start the recording thread
-        
-        if mic.status == STARTED and not mic.recorder.running:
-            mic.status = FINISHED
-        
         # *text_15* updates
         if t >= 0.0 and text_15.status == NOT_STARTED:
             # keep track of start time/frame for later
@@ -1502,6 +1505,17 @@ for thisTrial_4 in trials_4:
             text_15.setAutoDraw(True)
         if text_15.status == STARTED and t >= (0.0 + (3.0-win.monitorFramePeriod*0.75)): #most of one frame period left
             text_15.setAutoDraw(False)
+        
+        # *mic_1* updates
+        if t >= 0.0 and mic_1.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            mic_1.tStart = t  # underestimates by a little under one frame
+            mic_1.frameNStart = frameN  # exact frame index
+            mic_1.status = STARTED
+            mic_1.record(sec=3, block=False)  # start the recording thread
+        
+        if mic_1.status == STARTED and not mic_1.recorder.running:
+            mic_1.status = FINISHED
         
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -1524,12 +1538,12 @@ for thisTrial_4 in trials_4:
     for thisComponent in test4Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # mic stop & responses
-    mic.stop()  # sometimes helpful
-    if not mic.savedFile:
-        mic.savedFile = None
+    # mic_1 stop & responses
+    mic_1.stop()  # sometimes helpful
+    if not mic_1.savedFile:
+        mic_1.savedFile = None
     # store data for trials_4 (TrialHandler)
-    trials_4.addData('mic.filename', mic.savedFile)
+    trials_4.addData('mic_1.filename', mic_1.savedFile)
     thisExp.nextEntry()
     
 # completed 1 repeats of 'trials_4'

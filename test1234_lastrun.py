@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy2 Experiment Builder (v1.83.04), 2016_07_05_1400
+This experiment was created using PsychoPy2 Experiment Builder (v1.83.04), Tue 05 Jul 2016 04:30:49 PM SGT
 If you publish work using this script please cite the relevant PsychoPy publications
   Peirce, JW (2007) PsychoPy - Psychophysics software in Python. Journal of Neuroscience Methods, 162(1-2), 8-13.
   Peirce, JW (2009) Generating stimuli for neuroscience using PsychoPy. Frontiers in Neuroinformatics, 2:10. doi: 10.3389/neuro.11.010.2008
@@ -34,7 +34,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' %(expInfo['participant'], expNam
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath=u'C:\\Users\\sun\\Downloads\\Nanyang\\leapEEG\\Test1234\\test1234.psyexp',
+    originPath=u'/home/leapadmin/Desktop/test1234/test1234.psyexp',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 #save a log file for detail verbose info
@@ -212,7 +212,7 @@ text_15 = visual.TextStim(win=win, ori=0, name='text_15',
     text='Speak loud and clear please!',    font='Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
     color='white', colorSpace='rgb', opacity=1,
-    depth=-1.0)
+    depth=0.0)
 
 # Initialize components for Routine "endpage"
 endpageClock = core.Clock()
@@ -371,7 +371,7 @@ for thisComponent in test1introComponents:
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials = data.TrialHandler(nReps=1, method='random', 
+trials = data.TrialHandler(nReps=0, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('test1.xlsx'),
     seed=None, name='trials')
@@ -499,7 +499,7 @@ for thisTrial in trials:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 1 repeats of 'trials'
+# completed 0 repeats of 'trials'
 
 
 #------Prepare to start Routine "break1"-------
@@ -647,7 +647,7 @@ for thisComponent in test2introComponents:
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials_2 = data.TrialHandler(nReps=1, method='random', 
+trials_2 = data.TrialHandler(nReps=0, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('test2.xlsx'),
     seed=None, name='trials_2')
@@ -919,7 +919,7 @@ for thisTrial_2 in trials_2:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 1 repeats of 'trials_2'
+# completed 0 repeats of 'trials_2'
 
 
 #------Prepare to start Routine "break2"-------
@@ -1067,7 +1067,7 @@ for thisComponent in test3introComponents:
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials_3 = data.TrialHandler(nReps=1, method='random', 
+trials_3 = data.TrialHandler(nReps=0, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('test3.xlsx'),
     seed=None, name='trials_3')
@@ -1204,7 +1204,7 @@ for thisTrial_3 in trials_3:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 1 repeats of 'trials_3'
+# completed 0 repeats of 'trials_3'
 
 
 #------Prepare to start Routine "break3"-------
@@ -1457,11 +1457,11 @@ for thisTrial_4 in trials_4:
     frameN = -1
     routineTimer.add(3.000000)
     # update component parameters for each repeat
-    mic = microphone.AdvAudioCapture(name='mic', saveDir=wavDirName, stereo=False)
+    mic_1 = microphone.AdvAudioCapture(name='mic_1', saveDir=wavDirName, stereo=False)
     # keep track of which components have finished
     test4Components = []
-    test4Components.append(mic)
     test4Components.append(text_15)
+    test4Components.append(mic_1)
     for thisComponent in test4Components:
         if hasattr(thisComponent, 'status'):
             thisComponent.status = NOT_STARTED
@@ -1474,17 +1474,6 @@ for thisTrial_4 in trials_4:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         
-        # *mic* updates
-        if t >= 0.0 and mic.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            mic.tStart = t  # underestimates by a little under one frame
-            mic.frameNStart = frameN  # exact frame index
-            mic.status = STARTED
-            mic.record(sec=3.0, block=False)  # start the recording thread
-        
-        if mic.status == STARTED and not mic.recorder.running:
-            mic.status = FINISHED
-        
         # *text_15* updates
         if t >= 0.0 and text_15.status == NOT_STARTED:
             # keep track of start time/frame for later
@@ -1493,6 +1482,17 @@ for thisTrial_4 in trials_4:
             text_15.setAutoDraw(True)
         if text_15.status == STARTED and t >= (0.0 + (3.0-win.monitorFramePeriod*0.75)): #most of one frame period left
             text_15.setAutoDraw(False)
+        
+        # *mic_1* updates
+        if t >= 0.0 and mic_1.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            mic_1.tStart = t  # underestimates by a little under one frame
+            mic_1.frameNStart = frameN  # exact frame index
+            mic_1.status = STARTED
+            mic_1.record(sec=3, block=False)  # start the recording thread
+        
+        if mic_1.status == STARTED and not mic_1.recorder.running:
+            mic_1.status = FINISHED
         
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -1515,12 +1515,12 @@ for thisTrial_4 in trials_4:
     for thisComponent in test4Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # mic stop & responses
-    mic.stop()  # sometimes helpful
-    if not mic.savedFile:
-        mic.savedFile = None
+    # mic_1 stop & responses
+    mic_1.stop()  # sometimes helpful
+    if not mic_1.savedFile:
+        mic_1.savedFile = None
     # store data for trials_4 (TrialHandler)
-    trials_4.addData('mic.filename', mic.savedFile)
+    trials_4.addData('mic_1.filename', mic_1.savedFile)
     thisExp.nextEntry()
     
 # completed 1 repeats of 'trials_4'
