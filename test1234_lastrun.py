@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy2 Experiment Builder (v1.83.04), Tue 05 Jul 2016 04:30:49 PM SGT
+This experiment was created using PsychoPy2 Experiment Builder (v1.83.04), Mon 11 Jul 2016 04:13:19 PM SGT
 If you publish work using this script please cite the relevant PsychoPy publications
   Peirce, JW (2007) PsychoPy - Psychophysics software in Python. Journal of Neuroscience Methods, 162(1-2), 8-13.
   Peirce, JW (2009) Generating stimuli for neuroscience using PsychoPy. Frontiers in Neuroinformatics, 2:10. doi: 10.3389/neuro.11.010.2008
@@ -113,16 +113,6 @@ test2IntroMsg = visual.TextStim(win=win, ori=0, name='test2IntroMsg',
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
-# Initialize components for Routine "test2word1"
-test2word1Clock = core.Clock()
-nonwo1 = sound.Sound('A', secs=-1)
-nonwo1.setVolume(1)
-text_3 = visual.TextStim(win=win, ori=0, name='text_3',
-    text="If you are ready to hear next word,\nPress 'SPACEBAR'.",    font='Arial',
-    pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
-    depth=-2.0)
-
 # Initialize components for Routine "test2word2"
 test2word2Clock = core.Clock()
 nonwo2 = sound.Sound('A', secs=-1)
@@ -132,6 +122,8 @@ text_4 = visual.TextStim(win=win, ori=0, name='text_4',
     pos=[0, 0], height=0.1, wrapWidth=None,
     color='white', colorSpace='rgb', opacity=1,
     depth=-2.0)
+nonwo1 = sound.Sound('A', secs=-1)
+nonwo1.setVolume(1)
 
 # Initialize components for Routine "test2break"
 test2breakClock = core.Clock()
@@ -371,7 +363,7 @@ for thisComponent in test1introComponents:
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials = data.TrialHandler(nReps=0, method='random', 
+trials = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('test1.xlsx'),
     seed=None, name='trials')
@@ -499,7 +491,7 @@ for thisTrial in trials:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 0 repeats of 'trials'
+# completed 1 repeats of 'trials'
 
 
 #------Prepare to start Routine "break1"-------
@@ -647,7 +639,7 @@ for thisComponent in test2introComponents:
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials_2 = data.TrialHandler(nReps=0, method='random', 
+trials_2 = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('test2.xlsx'),
     seed=None, name='trials_2')
@@ -665,87 +657,6 @@ for thisTrial_2 in trials_2:
         for paramName in thisTrial_2.keys():
             exec(paramName + '= thisTrial_2.' + paramName)
     
-    #------Prepare to start Routine "test2word1"-------
-    t = 0
-    test2word1Clock.reset()  # clock 
-    frameN = -1
-    # update component parameters for each repeat
-    nonwo1.setSound(nonword1, secs=-1)
-    key_resp_7 = event.BuilderKeyResponse()  # create an object of type KeyResponse
-    key_resp_7.status = NOT_STARTED
-    # keep track of which components have finished
-    test2word1Components = []
-    test2word1Components.append(nonwo1)
-    test2word1Components.append(key_resp_7)
-    test2word1Components.append(text_3)
-    for thisComponent in test2word1Components:
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    
-    #-------Start Routine "test2word1"-------
-    continueRoutine = True
-    while continueRoutine:
-        # get current time
-        t = test2word1Clock.getTime()
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        # start/stop nonwo1
-        if t >= 0.0 and nonwo1.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            nonwo1.tStart = t  # underestimates by a little under one frame
-            nonwo1.frameNStart = frameN  # exact frame index
-            nonwo1.play()  # start the sound (it finishes automatically)
-        
-        # *key_resp_7* updates
-        if t >= 0.0 and key_resp_7.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            key_resp_7.tStart = t  # underestimates by a little under one frame
-            key_resp_7.frameNStart = frameN  # exact frame index
-            key_resp_7.status = STARTED
-            # keyboard checking is just starting
-            event.clearEvents(eventType='keyboard')
-        if key_resp_7.status == STARTED:
-            theseKeys = event.getKeys(keyList=['space'])
-            
-            # check for quit:
-            if "escape" in theseKeys:
-                endExpNow = True
-            if len(theseKeys) > 0:  # at least one key was pressed
-                # a response ends the routine
-                continueRoutine = False
-        
-        # *text_3* updates
-        if t >= 0.0 and text_3.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            text_3.tStart = t  # underestimates by a little under one frame
-            text_3.frameNStart = frameN  # exact frame index
-            text_3.setAutoDraw(True)
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in test2word1Components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # check for quit (the Esc key)
-        if endExpNow or event.getKeys(keyList=["escape"]):
-            core.quit()
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    #-------Ending Routine "test2word1"-------
-    for thisComponent in test2word1Components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    nonwo1.stop() #ensure sound has stopped at end of routine
-    # the Routine "test2word1" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
     #------Prepare to start Routine "test2word2"-------
     t = 0
     test2word2Clock.reset()  # clock 
@@ -754,11 +665,13 @@ for thisTrial_2 in trials_2:
     nonwo2.setSound(nonword2, secs=-1)
     key_resp_8 = event.BuilderKeyResponse()  # create an object of type KeyResponse
     key_resp_8.status = NOT_STARTED
+    nonwo1.setSound(nonword1, secs=-1)
     # keep track of which components have finished
     test2word2Components = []
     test2word2Components.append(nonwo2)
     test2word2Components.append(key_resp_8)
     test2word2Components.append(text_4)
+    test2word2Components.append(nonwo1)
     for thisComponent in test2word2Components:
         if hasattr(thisComponent, 'status'):
             thisComponent.status = NOT_STARTED
@@ -771,14 +684,14 @@ for thisTrial_2 in trials_2:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         # start/stop nonwo2
-        if t >= 0.0 and nonwo2.status == NOT_STARTED:
+        if t >= 2 and nonwo2.status == NOT_STARTED:
             # keep track of start time/frame for later
             nonwo2.tStart = t  # underestimates by a little under one frame
             nonwo2.frameNStart = frameN  # exact frame index
             nonwo2.play()  # start the sound (it finishes automatically)
         
         # *key_resp_8* updates
-        if t >= 0.0 and key_resp_8.status == NOT_STARTED:
+        if t >= 2 and key_resp_8.status == NOT_STARTED:
             # keep track of start time/frame for later
             key_resp_8.tStart = t  # underestimates by a little under one frame
             key_resp_8.frameNStart = frameN  # exact frame index
@@ -804,11 +717,17 @@ for thisTrial_2 in trials_2:
                 continueRoutine = False
         
         # *text_4* updates
-        if t >= 0.0 and text_4.status == NOT_STARTED:
+        if t >= 2 and text_4.status == NOT_STARTED:
             # keep track of start time/frame for later
             text_4.tStart = t  # underestimates by a little under one frame
             text_4.frameNStart = frameN  # exact frame index
             text_4.setAutoDraw(True)
+        # start/stop nonwo1
+        if t >= 0.0 and nonwo1.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            nonwo1.tStart = t  # underestimates by a little under one frame
+            nonwo1.frameNStart = frameN  # exact frame index
+            nonwo1.play()  # start the sound (it finishes automatically)
         
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -843,6 +762,7 @@ for thisTrial_2 in trials_2:
     trials_2.addData('key_resp_8.corr', key_resp_8.corr)
     if key_resp_8.keys != None:  # we had a response
         trials_2.addData('key_resp_8.rt', key_resp_8.rt)
+    nonwo1.stop() #ensure sound has stopped at end of routine
     # the Routine "test2word2" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -919,7 +839,7 @@ for thisTrial_2 in trials_2:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 0 repeats of 'trials_2'
+# completed 1 repeats of 'trials_2'
 
 
 #------Prepare to start Routine "break2"-------
@@ -1067,9 +987,9 @@ for thisComponent in test3introComponents:
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials_3 = data.TrialHandler(nReps=0, method='random', 
+trials_3 = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('test3.xlsx'),
+    trialList=data.importConditions(u'test3.csv'),
     seed=None, name='trials_3')
 thisExp.addLoop(trials_3)  # add the loop to the experiment
 thisTrial_3 = trials_3.trialList[0]  # so we can initialise stimuli with some values
@@ -1204,7 +1124,7 @@ for thisTrial_3 in trials_3:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 0 repeats of 'trials_3'
+# completed 1 repeats of 'trials_3'
 
 
 #------Prepare to start Routine "break3"-------
@@ -1354,7 +1274,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 trials_4 = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('test4.xlsx'),
+    trialList=data.importConditions(u'test4.csv'),
     seed=None, name='trials_4')
 thisExp.addLoop(trials_4)  # add the loop to the experiment
 thisTrial_4 = trials_4.trialList[0]  # so we can initialise stimuli with some values

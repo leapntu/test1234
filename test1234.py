@@ -1,20 +1,28 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy2 Experiment Builder (v1.83.04), Tue 05 Jul 2016 04:41:11 PM SGT
+This experiment was created using PsychoPy2 Experiment Builder (v1.83.04), Mon 11 Jul 2016 09:53:13 AM SGT
 If you publish work using this script please cite the relevant PsychoPy publications
   Peirce, JW (2007) PsychoPy - Psychophysics software in Python. Journal of Neuroscience Methods, 162(1-2), 8-13.
   Peirce, JW (2009) Generating stimuli for neuroscience using PsychoPy. Frontiers in Neuroinformatics, 2:10. doi: 10.3389/neuro.11.010.2008
 """
 
 from __future__ import division  # so that 1/3=0.333 instead of 1/3=0
-from psychopy import locale_setup, visual, core, data, event, logging, parallel,sound, gui, microphone
+from psychopy import locale_setup, visual, core, data, event, logging, sound, gui, microphone,parallel
 from psychopy.constants import *  # things like STARTED, FINISHED
 import numpy as np  # whole numpy lib is available, prepend 'np.'
 from numpy import sin, cos, tan, log, log10, pi, average, sqrt, std, deg2rad, rad2deg, linspace, asarray
 from numpy.random import random, randint, normal, shuffle
 import os  # handy system and path functions
 import sys # to get file system encoding
+
+#enable parallel port access with:
+#sudo modprobe -r lp
+
+#port = parallel.ParallelPort('/dev/parport0')
+#core.wait(2)
+#port.setData(0)
+
 
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemencoding())
@@ -49,17 +57,10 @@ if not os.path.isdir(wavDirName):
     os.makedirs(wavDirName)  # to hold .wav files
 
 # Setup the Window
-win = visual.Window(size=[1280, 720], fullscr=True, screen=0, allowGUI=True, allowStencil=False,
+win = visual.Window(size=[1280, 720], fullscr=False, screen=0, allowGUI=True, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True,
     )
-    
-#enable parallel port access with:
-#sudo modprobe -r lp
-
-#port = parallel.ParallelPort('/dev/parport0')
-#core.wait(2)
-#port.setData(0)
 
 # Enable sound input/output:
 microphone.switchOn()
@@ -73,17 +74,17 @@ else:
 # Initialize components for Routine "Introduction"
 IntroductionClock = core.Clock()
 introMessage = visual.TextStim(win=win, ori=0, name='introMessage',
-    text="Welcome to the LEAP Lab!\nYou will have 5 test to measure your English Ablity.\nFor the test, it will take about 1 and half hour including the break time.\nThe break will be given during the each Test.\nIf you have any questions during the test, \nplease ask to the mannger in the break time or test intro time.\nThen, let's begin! Press the 'SPACEBAR'.",    font='Arial',
+    text=u"Welcome to the LEAP Lab!\nYou will have 5 tests to measure your English Ability.\nDuring each test, it will take about 1 and half hour including the break time.\nThe break will be given during each Test.\nIf you have any questions during the test, \nplease ask to the mananger in the break time or test intro time.\nThen, let's begin! Press the 'SPACEBAR'.",    font=u'Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test1intro"
 test1introClock = core.Clock()
 test1Intro = visual.TextStim(win=win, ori=0, name='test1Intro',
-    text="Test1\n\nIn this test, you will see 40 set of written pseudowords.\nThen you need to choose one word which seems more 'Wordlike'.\nWhen you think the Left word is more 'Word-like', then Press 'F'.\nWhen you think the Right word is more 'Word-like', then Press 'J'.\nIf you don't have confidnece about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR'.",    font='Arial',
+    text=u"Test1\n\nIn this test, you will see 40 sets of written pseudowords.\nThen you need to choose one word which reads more like a 'Real Word'.\nWhen you think the Left word is more like a 'Real Word', then Press 'F'.\nWhen you think the Right word is more like 'Real Word', then Press 'J'.\nIf you don't have confidence about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR'.",    font=u'Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test1"
@@ -99,53 +100,45 @@ text_2 = visual.TextStim(win=win, ori=0, name='text_2',
     color='white', colorSpace='rgb', opacity=1,
     depth=-1.0)
 text_16 = visual.TextStim(win=win, ori=0, name='text_16',
-    text="Which word is more 'Word-like'?",    font='Arial',
+    text=u"Which word reads more like 'Real Word'?",    font=u'Arial',
     pos=[0, 0.3], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-3.0)
 
 # Initialize components for Routine "break1"
 break1Clock = core.Clock()
 breakmes = visual.TextStim(win=win, ori=0, name='breakmes',
-    text="Now, you can take a break as long as you need before continuing.\nPlease, press 'SPACEBAR' when you are ready to continue.",    font='Arial',
+    text=u"Now, you can take a break as long as you need before continuing.\nPlease, press 'SPACEBAR' when you are ready to continue.",    font=u'Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test2intro"
 test2introClock = core.Clock()
 test2IntroMsg = visual.TextStim(win=win, ori=0, name='test2IntroMsg',
-    text="Test2\n\nIn this test, you will hear 40 set of spoken pseudowords.\nEach word will be given by Pressing 'SPACEBAR'.\nThen you need to choose one word which sounds more 'Word-like'.\nWhen you think the First word is more 'Word-like', then Press 'F'.\nWhen you think the Second word is more 'Word-like', then Press 'J'.\nIf you don't have confidnece about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR' for listening the first word.",    font='Arial',
+    text=u"Test2\n\nIn this test, you will hear 40 sets of spoken pseudowords.\nEach word will be given by Pressing 'SPACEBAR'.\nThen you need to choose one word which sounds more like a 'Real Word'.\nWhen you think the First word is more like a 'Real Word', then Press 'F'.\nWhen you think the Second word is more like a 'Real Word', then Press 'J'.\nIf you don't have confidence about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR' for listening the first word.",    font=u'Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0)
-
-# Initialize components for Routine "test2word1"
-test2word1Clock = core.Clock()
-nonwo1 = sound.Sound('A', secs=-1)
-nonwo1.setVolume(1)
-text_3 = visual.TextStim(win=win, ori=0, name='text_3',
-    text="If you are ready to hear next word,\nPress 'SPACEBAR'.",    font='Arial',
-    pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
-    depth=-2.0)
 
 # Initialize components for Routine "test2word2"
 test2word2Clock = core.Clock()
-nonwo2 = sound.Sound('A', secs=-1)
-nonwo2.setVolume(1)
+nonwo1 = sound.Sound('A', secs=-1)
+nonwo1.setVolume(1)
 text_4 = visual.TextStim(win=win, ori=0, name='text_4',
-    text="Which word is more 'Word-like'?\nIf you think First one is more 'Word-like', Press 'F'.\nIf you think second one is more 'Word-like', Press 'J'.",    font='Arial',
+    text=u"Which word is more like a 'Real Word'?\nIf you think First one is more like a 'Real Word', Press 'F'.\nIf you think second one is more like a 'Real Word', Press 'J'.",    font=u'Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-2.0)
+nonwo2 = sound.Sound(nonword2, secs=-1)
+nonwo2.setVolume(1)
 
 # Initialize components for Routine "test2break"
 test2breakClock = core.Clock()
 text_14 = visual.TextStim(win=win, ori=0, name='text_14',
-    text="If you are ready to listen next word,\nPress 'SPACEBAR'!",    font='Arial',
+    text=u"If you are ready to hear next word,\nPress 'SPACEBAR'!",    font=u'Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "break2"
@@ -159,9 +152,9 @@ text_5 = visual.TextStim(win=win, ori=0, name='text_5',
 # Initialize components for Routine "test3intro"
 test3introClock = core.Clock()
 test3IntroMsg = visual.TextStim(win=win, ori=0, name='test3IntroMsg',
-    text="Test3\n\nIn this test, you will hear 34 spoken words.\nThen you need to choose one written word which you heard before.\nIf you don't have confidnece about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR' for listening the first word.\n",    font='Arial',
+    text=u"Test3\n\nIn this test, you will hear 40 spoken words.\nThen you need to choose the correct spelling for the word you heard.\nIf you don't have confidence about your choice, just believe your gut!\nIf you are ready, Press 'SPACEBAR' for listening the first word.",    font=u'Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test3"
@@ -179,9 +172,9 @@ text_7 = visual.TextStim(win=win, ori=0, name='text_7',
     color='white', colorSpace='rgb', opacity=1,
     depth=-2.0)
 text_8 = visual.TextStim(win=win, ori=0, name='text_8',
-    text='Which word is Correct by your listening?',    font='Arial',
+    text=u"What word did you hear?\nLeft word, Press 'F'.\nRight word, Press 'J'",    font=u'Arial',
     pos=[0, 0.3], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-4.0)
 
 # Initialize components for Routine "break3"
@@ -195,9 +188,9 @@ text_9 = visual.TextStim(win=win, ori=0, name='text_9',
 # Initialize components for Routine "test4intro"
 test4introClock = core.Clock()
 text_10 = visual.TextStim(win=win, ori=0, name='text_10',
-    text="Test4\n\nIn this test, you will see 36 written words.\nThen you need to speak the word as clear as you can.\nIf you are ready, Press 'SPACEBAR'.\n",    font='Arial',
+    text=u"Test4\n\nIn this test, you will see 40 written words.\nThen you need to speak the word as clear as you can.\nIf you are ready, Press 'SPACEBAR'.\n\n",    font=u'Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "test4word"
@@ -208,25 +201,25 @@ text_11 = visual.TextStim(win=win, ori=0, name='text_11',
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0)
 text_12 = visual.TextStim(win=win, ori=0, name='text_12',
-    text="If you are ready to speak, Press 'SPACEBAR'.\nYou should speak the word in 3 seconds.",    font='Arial',
+    text=u"Please Look at the word.\nThen, if you are ready to speak, Press 'SPACEBAR'.\nYou should speak the word in 3 seconds.",    font=u'Arial',
     pos=[0, 0.3], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-1.0)
 
 # Initialize components for Routine "test4"
 test4Clock = core.Clock()
 text_15 = visual.TextStim(win=win, ori=0, name='text_15',
-    text='Speak loud and clear please!',    font='Arial',
+    text=u'Speak loud and clear please!',    font=u'Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Initialize components for Routine "endpage"
 endpageClock = core.Clock()
 text_13 = visual.TextStim(win=win, ori=0, name='text_13',
-    text="You have now come to the end of our first 4 experiment.\nNow, you will have final test.\nPlease wait for a while.\nPress, 'SPACEBAR' for tuning off the program.",    font='Arial',
+    text=u"You have now come to the end of our first 4 experiments.\nNow, you will have final test.\nPlease wait for a while.\nPress, 'SPACEBAR' for tuning off the program.\n",    font=u'Arial',
     pos=[0, 0], height=0.1, wrapWidth=None,
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0)
 
 # Create some handy timers
@@ -672,108 +665,20 @@ for thisTrial_2 in trials_2:
         for paramName in thisTrial_2.keys():
             exec(paramName + '= thisTrial_2.' + paramName)
     
-    #------Prepare to start Routine "test2word1"-------
-    t = 0
-    test2word1Clock.reset()  # clock 
-    frameN = -1
-    # update component parameters for each repeat
-    nonwo1.setSound(nonword1, secs=-1)
-    key_resp_7 = event.BuilderKeyResponse()  # create an object of type KeyResponse
-    key_resp_7.status = NOT_STARTED
-    # keep track of which components have finished
-    test2word1Components = []
-    test2word1Components.append(nonwo1)
-    test2word1Components.append(key_resp_7)
-    test2word1Components.append(text_3)
-    for thisComponent in test2word1Components:
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    
-    #-------Start Routine "test2word1"-------
-    continueRoutine = True
-    while continueRoutine:
-        # get current time
-        t = test2word1Clock.getTime()
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        # start/stop nonwo1
-        if t >= 0.0 and nonwo1.status == NOT_STARTED:
-#            if thisTrial_2.values()[0]==u'f':
-#                print('f')
-#                port.setData(1)
-#            else:
-#                print('j')
-#                port.setData(2)
-            # keep track of start time/frame for later
-            nonwo1.tStart = t  # underestimates by a little under one frame
-            nonwo1.frameNStart = frameN  # exact frame index
-            nonwo1.play()  # start the sound (it finishes automatically)
-#            core.wait(0.3)
-#            port.setData(0)
-        
-        # *key_resp_7* updates
-        if t >= 0.0 and key_resp_7.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            key_resp_7.tStart = t  # underestimates by a little under one frame
-            key_resp_7.frameNStart = frameN  # exact frame index
-            key_resp_7.status = STARTED
-            # keyboard checking is just starting
-            event.clearEvents(eventType='keyboard')
-        if key_resp_7.status == STARTED:
-            theseKeys = event.getKeys(keyList=['space'])
-            
-            # check for quit:
-            if "escape" in theseKeys:
-                endExpNow = True
-            if len(theseKeys) > 0:  # at least one key was pressed
-                # a response ends the routine
-                continueRoutine = False
-        
-        # *text_3* updates
-        if t >= 0.0 and text_3.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            text_3.tStart = t  # underestimates by a little under one frame
-            text_3.frameNStart = frameN  # exact frame index
-            text_3.setAutoDraw(True)
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in test2word1Components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # check for quit (the Esc key)
-        if endExpNow or event.getKeys(keyList=["escape"]):
-            core.quit()
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    #-------Ending Routine "test2word1"-------
-    for thisComponent in test2word1Components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    nonwo1.stop() #ensure sound has stopped at end of routine
-    # the Routine "test2word1" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
     #------Prepare to start Routine "test2word2"-------
     t = 0
     test2word2Clock.reset()  # clock 
     frameN = -1
     # update component parameters for each repeat
-    nonwo2.setSound(nonword2, secs=-1)
+    nonwo1.setSound(nonword1, secs=-1)
     key_resp_8 = event.BuilderKeyResponse()  # create an object of type KeyResponse
     key_resp_8.status = NOT_STARTED
     # keep track of which components have finished
     test2word2Components = []
-    test2word2Components.append(nonwo2)
+    test2word2Components.append(nonwo1)
     test2word2Components.append(key_resp_8)
     test2word2Components.append(text_4)
+    test2word2Components.append(nonwo2)
     for thisComponent in test2word2Components:
         if hasattr(thisComponent, 'status'):
             thisComponent.status = NOT_STARTED
@@ -785,23 +690,24 @@ for thisTrial_2 in trials_2:
         t = test2word2Clock.getTime()
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
-        # start/stop nonwo2
-        if t >= 0.0 and nonwo2.status == NOT_STARTED:
+        # start/stop nonwo1
+        if t >= 0.0 and nonwo1.status == NOT_STARTED:
+            # keep track of start time/frame for later
 #            if thisTrial_2.values()[0]==u'f':
 #                print('f')
-#                port.setData(2)
+#                port.setData(1)
 #            else:
 #                print('j')
-#                port.setData(1)
-            # keep track of start time/frame for later
-            nonwo2.tStart = t  # underestimates by a little under one frame
-            nonwo2.frameNStart = frameN  # exact frame index
-            nonwo2.play()  # start the sound (it finishes automatically)
+#                port.setData(2)
+            
+            nonwo1.tStart = t  # underestimates by a little under one frame
+            nonwo1.frameNStart = frameN  # exact frame index
+            nonwo1.play()  # start the sound (it finishes automatically)
 #            core.wait(0.3)
 #            port.setData(0)
         
         # *key_resp_8* updates
-        if t >= 0.0 and key_resp_8.status == NOT_STARTED:
+        if t >= 2 and key_resp_8.status == NOT_STARTED:
             # keep track of start time/frame for later
             key_resp_8.tStart = t  # underestimates by a little under one frame
             key_resp_8.frameNStart = frameN  # exact frame index
@@ -827,11 +733,26 @@ for thisTrial_2 in trials_2:
                 continueRoutine = False
         
         # *text_4* updates
-        if t >= 0.0 and text_4.status == NOT_STARTED:
+        if t >= 2 and text_4.status == NOT_STARTED:
             # keep track of start time/frame for later
             text_4.tStart = t  # underestimates by a little under one frame
             text_4.frameNStart = frameN  # exact frame index
             text_4.setAutoDraw(True)
+        # start/stop nonwo2
+        if t >= 2 and nonwo2.status == NOT_STARTED:
+#            if thisTrial_2.values()[0]==u'f':
+#                print('f')
+#                port.setData(2)
+#            else:
+#                print('j')
+#                port.setData(1)
+            
+            # keep track of start time/frame for later
+            nonwo2.tStart = t  # underestimates by a little under one frame
+            nonwo2.frameNStart = frameN  # exact frame index
+            nonwo2.play()  # start the sound (it finishes automatically)
+            #core.wait(0.3)
+            #port.setData(0)
         
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -854,7 +775,7 @@ for thisTrial_2 in trials_2:
     for thisComponent in test2word2Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    nonwo2.stop() #ensure sound has stopped at end of routine
+    nonwo1.stop() #ensure sound has stopped at end of routine
     # check responses
     if key_resp_8.keys in ['', [], None]:  # No response was made
        key_resp_8.keys=None
@@ -866,6 +787,7 @@ for thisTrial_2 in trials_2:
     trials_2.addData('key_resp_8.corr', key_resp_8.corr)
     if key_resp_8.keys != None:  # we had a response
         trials_2.addData('key_resp_8.rt', key_resp_8.rt)
+    nonwo2.stop() #ensure sound has stopped at end of routine
     # the Routine "test2word2" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
